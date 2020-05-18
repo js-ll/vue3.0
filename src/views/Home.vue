@@ -23,6 +23,7 @@
       <div class="aa">{{this.$store.state.count}}</div>
     
     </y-scroll>
+    <router-link to="/about">home</router-link>
   </div>
 </template>
 
@@ -30,10 +31,12 @@
 // @ is an alias to /src
 import YScroll from "@/components/YScroll.vue";
 
+
 export default {
   name: "Home",
   components: {
     YScroll
+   
   },
    data () {
       return {
