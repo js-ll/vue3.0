@@ -14,7 +14,15 @@
         </ul>
         <ul class="date">
             <li class="none-week" v-for="o in lastMonthDays" :key="o+50" >{{lastMonthStartDay+o-1}}</li>
-            <li @click="clickEvent" v-for="day in nowMonthDays" :key="day" >{{day}}</li>
+            <li @click="clickEvent" v-for="day in nowMonthDays" :key="day" >
+               <div style="color:red" v-if="nowDate.date==day" >
+                 {{nowDate.date}}
+                </div> 
+              <div v-else>
+                     {{day}}
+              </div>
+                
+                </li>
             <li class="none-week" v-for="day in (42-lastMonthDays-nowMonthDays)" :key="day+100">{{day}}</li>
         </ul>
     </div>
@@ -34,6 +42,7 @@ export default {
             return this.startWeek()
         },
         lastMonthStartDay () {
+            
             return this.calcLastMonthDays(this.nowDate.year,this.nowDate.month)-(this.startWeek()-1)
         },
         nowMonthDays () {
@@ -41,8 +50,10 @@ export default {
         }
     },
     created () {
+        console.log(this.nowDate)
         if(this.setDate) {
             this.nowDate = this.getDate(this.setDate)
+            console.log(this.nowDate)
         }
     },
     methods: {
@@ -55,6 +66,7 @@ export default {
             }
         },
         formatWeek (day) {
+            console.log(day)
             switch (day) {                
                 case 0:
                     return '日';

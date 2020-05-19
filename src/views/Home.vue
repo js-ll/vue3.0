@@ -24,18 +24,21 @@
     
     </y-scroll>
     <router-link to="/about">home</router-link>
+    <maps></maps>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import YScroll from "@/components/YScroll.vue";
-
+// import YScroll from "@/components/YScroll.vue";
+const YScroll = ()=>import("@/components/YScroll.vue")
+const maps = ()=>import("@/components/maps.vue")
 
 export default {
   name: "Home",
   components: {
-    YScroll
+    YScroll,
+    maps
    
   },
    data () {
