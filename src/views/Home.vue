@@ -25,6 +25,7 @@
     </y-scroll>
     <router-link to="/about">home</router-link>
     <maps></maps>
+    <tab-foot :state="state"></tab-foot>
   </div>
 </template>
 
@@ -32,20 +33,26 @@
 // @ is an alias to /src
 // import YScroll from "@/components/YScroll.vue";
 const YScroll = ()=>import("@/components/YScroll.vue")
-const maps = ()=>import("@/components/maps.vue")
-
+const Maps = ()=>import("@/components/maps.vue")
+// import TabFoot from "@/components/TabFoot.vue";
+const TabFoot = ()=>import("@/components/TabFoot.vue")
 export default {
   name: "Home",
   components: {
     YScroll,
-    maps
+    Maps,
+    TabFoot
    
   },
    data () {
       return {
         user: {
           a:1
+        },
+        state:{
+          null:1
         }
+
       }
     },
   methods: {

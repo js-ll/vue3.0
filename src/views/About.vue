@@ -39,9 +39,12 @@ export default {
     },
     computed: {
         lastMonthDays () {
+            console.log(this.startWeek())
             return this.startWeek()
         },
         lastMonthStartDay () {
+            
+          
             
             return this.calcLastMonthDays(this.nowDate.year,this.nowDate.month)-(this.startWeek()-1)
         },
